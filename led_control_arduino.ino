@@ -13,6 +13,11 @@ void setup() {
 void loop() {
   if(Serial.available()){
     Color = Serial.readStringUntil('\n');
+    if(Color == "Off"){
+      digitalWrite(Blue, LOW);
+      digitalWrite(Red, LOW);
+      digitalWrite(Green, LOW);
+    }
     if(Color == "Blue"){
       digitalWrite(Blue, HIGH);
       digitalWrite(Green, LOW);
@@ -43,5 +48,11 @@ void loop() {
       digitalWrite(Green, HIGH);
       digitalWrite(Red, HIGH);
     }
+    if(Color == "White"){
+      digitalWrite(Blue, HIGH);
+      digitalWrite(Red, HIGH);
+      digitalWrite(Green, HIGH);
+    }
+    
   }
 }
